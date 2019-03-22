@@ -150,6 +150,8 @@ function genDefaultModel (
 
   addProp(el, 'value', `(${value})`)
   addHandler(el, event, code, null, true)
+  // 这一句很关键：实在把 model 的值设置为输入框的值  
+  // 只在组件 update 得时候把 model 的值同步到 input 的 value
   if (trim || number) {
     addHandler(el, 'blur', '$forceUpdate()')
   }
