@@ -46,6 +46,14 @@ function isWhitespace (node: VNode): boolean {
   return node.isComment || node.text === ' '
 }
 
+/**
+ * 其实就是把 scopeSlots 转换为下面这种表示:
+ * scopeSlots: {
+ *  default (props) {
+ *    return fn(props)
+ *  }
+ * }
+ */
 export function resolveScopedSlots (
   fns: ScopedSlotsData, // see flow/vnode
   res?: Object
